@@ -10,3 +10,24 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# stuff from Zakar
+.DS_Store
+*/target/
+target/
+.settings/
+*/.classpath
+*/.project
+*/*.iml
+*.iml
+.classpath
+.idea
+.project
+/data/
+/servlet-map/data/
+transport.log
+*pom.xml.versionsBackup
+/standalone-jetty/dist/public/oskari
+/standalone-jetty/dist/public/Oskari
+/standalone-jetty/dist/*.jar
+/bin/
