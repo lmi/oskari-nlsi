@@ -1,0 +1,22 @@
+# Systemd unit file for Oskari
+#
+#	2016-11-04 Hafliði Sigtryggur Magnússon
+#
+[Unit]
+Description=Oskari Map Services
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+ExecStart=/usr/local/sbin/oskari.sh start
+ExecStop=/bin/kill -15 $MAINPID
+StandardOutput=syslog
+StandardError=syslog
+
+User=oskari
+Group=oskari
+
+[Install]
+WantedBy=multi-user.target
+
