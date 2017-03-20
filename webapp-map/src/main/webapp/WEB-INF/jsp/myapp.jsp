@@ -1,14 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>${viewName}</title>
+    <title>Oskari - ${viewName}</title>
+    <!-- National Land Survey of Iceland -->
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.7.2.min.js">
     </script>
-
+	
     <!-- ############# css ################# -->
     <link
             rel="stylesheet"
@@ -38,7 +40,7 @@
             }
 
             #maptools {
-                background-color: #333438;
+                background-color: #004a8f;
                 height: 100%;
                 position: absolute;
                 top: 0;
@@ -90,6 +92,14 @@
                 padding: 5px;
             }
 
+			#lmilogo {
+				background-color: #004a8f;
+                position: absolute;
+                top: 0;
+                width: 170px;
+				height: 73px;
+			}
+
         }
     </style>
     <!-- ############# /css ################# -->
@@ -97,6 +107,9 @@
 <body>
 
 <nav id="maptools">
+	<div id="lmilogo">
+		<img src="Oskari/resources/images/LMI_logo_hlidar_serl_170x73.jpg" border="0">
+	<div>
     <div id="loginbar">
     </div>
     <div id="menubar">

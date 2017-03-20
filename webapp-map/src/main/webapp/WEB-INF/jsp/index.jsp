@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Oskari - ${viewName}</title>
+    <!-- National Land Survey of Iceland -->
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.7.2.min.js">
     </script>
@@ -96,7 +97,7 @@
                 position: absolute;
                 top: 0;
                 width: 170px;
-				height: 67px;
+				height: 73px;
 			}
 
         }
@@ -107,7 +108,7 @@
 
 <nav id="maptools">
 	<div id="lmilogo">
-		<img src="Oskari/resources/images/LMI_logo_hlidar_serl_170x67.jpg" border="0">
+		<img src="Oskari/resources/images/LMI_logo_hlidar_serl_170x73.jpg" border="0">
 	<div>
     <div id="loginbar">
     </div>
