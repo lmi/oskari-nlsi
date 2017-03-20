@@ -108,8 +108,11 @@ public class lmiSearchChannel extends SearchChannel {
                 JSONObject dataItem = data.getJSONObject(i);
                 SearchResultItem item = new SearchResultItem();
 
-		item.setChannelId( ID );
-                item.setTitle(dataItem.getString("name")+" "+dataItem.getString("nameid")+"-"+dataItem.getString("id"));
+	            item.setChannelId( ID );
+                //item.setTitle(dataItem.getString("name")+" "+dataItem.getString("nameid")+"-"+dataItem.getString("id"));
+                item.setTitle(dataItem.getString("name"));
+                item.setLocationName( dataItem.getString("name"));
+                item.setVillage(dataItem.getString("sveitarfelag"));
                 item.setResourceId(dataItem.getString("nameid"));
                 item.setDescription(dataItem.getString( "layer" ));
 //		item.setType("1.0");
