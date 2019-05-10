@@ -1,0 +1,85 @@
+{
+  "name" : "Default view",
+  "type" : "DEFAULT",
+  "default" : true,
+  "public" : true,
+  "onlyUuid" : false,
+  "oskari" : {
+    "application" : "servlet",
+    "page" : "myapp",
+    "development_prefix" : "/applications/sample"
+  },
+  "selectedLayers" : ["wmslayer-openstreetmap-fi.json"],
+  "bundles" : [
+    {
+      "id" : "mapfull",
+      "config" : {
+        "mapOptions": {
+          "srsName": "EPSG:3057",
+          "maxExtent": {
+            "bottom": -38980.4932,
+            "left": -39925.6142,
+            "right": 1001273.8754,
+            "top": 986514.2978
+          },
+          "resolutions": [7000,	5600,	4200,	2800,	1400,	840,	560,	280,	140,	70,	28,	14,	7,	2.8,	1.4,	0.56
+          ]
+        },
+        "plugins" : [
+          { "id" : "Oskari.mapframework.bundle.mapmodule.plugin.LayersPlugin" },
+          { "id" : "Oskari.mapframework.mapmodule.WmsLayerPlugin" },
+          { "id" : "Oskari.mapframework.mapmodule.MarkersPlugin" },
+          { "id" : "Oskari.mapframework.mapmodule.ControlsPlugin" },
+          { "id" : "Oskari.mapframework.mapmodule.GetInfoPlugin",
+            "config" : {
+              "ignoredLayerTypes" : ["WFS", "MYPLACES"]
+            }},
+          { "id" : "Oskari.mapframework.wmts.mapmodule.plugin.WmtsLayerPlugin" },
+          { "id" : "Oskari.mapframework.bundle.mapwfs2.plugin.WfsLayerPlugin" },
+          { "id" : "Oskari.mapframework.bundle.mapmodule.plugin.ScaleBarPlugin" },
+          { "id" : "Oskari.mapframework.bundle.mapmodule.plugin.Portti2Zoombar" },
+          { "id" : "Oskari.mapframework.bundle.mapmodule.plugin.PanButtons" },
+          { "id" : "Oskari.mapframework.bundle.mapmodule.plugin.FullScreenPlugin" },
+          { "id" : "Oskari.mapframework.bundle.myplacesimport.plugin.UserLayersLayerPlugin" },
+          { "id" : "Oskari.mapframework.bundle.mapmyplaces.plugin.MyPlacesLayerPlugin" },
+          { "id" : "Oskari.mapframework.bundle.mapanalysis.plugin.AnalysisLayerPlugin" },
+          { "id" : "Oskari.mapframework.mapmodule.VectorLayerPlugin" }
+        ],
+        "layers": []
+      },
+      "state" : {
+        "east": 515003.0624,
+        "north": 516943.746,
+        "srs": "EPSG:3057",
+        "selectedLayers": [],
+        "zoom": 2
+      }
+    },
+    { "id" : "divmanazer" },
+    { "id" : "drawtools" },
+    { "id" : "toolbar" },
+    { "id" : "infobox" },
+    { "id" : "statehandler" },
+    { "id" : "search" },
+    { "id" : "metadatacatalogue" },
+    { "id" : "layerselector2" },
+    { "id" : "layerselection2" },
+    { "id" : "coordinatetool"},
+    { "id" : "metadataflyout" },
+    { "id" : "personaldata" },
+    { "id" : "publisher2" },
+    { "id" : "maplegend" },
+    { "id" : "userguide" },
+    { "id" : "myplaces3" },
+    { "id" : "printout" },
+    { "id" : "analyse" },
+    { "id" : "myplacesimport" },
+    {
+      "id" : "featuredata2",
+      "config": {
+        "selectionTools": true
+      }
+    },
+    { "id" : "heatmap" }
+  ]
+}

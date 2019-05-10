@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>is.geoportal</groupId>
-        <artifactId>oskari</artifactId>
+        <artifactId>oskari-nlsi</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>app-resources</artifactId>
+<artifactId>app-resources</artifactId>
     <packaging>jar</packaging>
     <name>Resources for application</name>
     <dependencies>
         <dependency>
             <groupId>fi.nls.oskari</groupId>
             <artifactId>content-resources</artifactId>
-            <version>${oskari.version}</version>
         </dependency>
     </dependencies>
+
 </project>

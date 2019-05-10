@@ -6,20 +6,8 @@
 <html>
 <head>
     <title>Oskari - ${viewName}</title>
-    <!-- National Land Survey of Iceland -->
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.7.2.min.js">
-    </script>
-	
     <!-- ############# css ################# -->
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="/Oskari/resources/css/forms.css"/>
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="/Oskari/resources/css/portal.css"/>
     <link
             rel="stylesheet"
             type="text/css"
@@ -27,7 +15,7 @@
     <link
             rel="stylesheet"
             type="text/css"
-            href="/Oskari${path}/css/overwritten.css"/>
+            href="/Oskari${path}/oskari.min.css"/>
     <style type="text/css">
         @media screen {
             body {
@@ -40,7 +28,7 @@
             }
 
             #maptools {
-                background-color: #004a8f;
+                background-color: #333438;
                 height: 100%;
                 position: absolute;
                 top: 0;
@@ -60,7 +48,7 @@
             #login input[type="text"], #login input[type="password"] {
                 width: 90%;
                 margin-bottom: 5px;
-                background-image: url("/Oskari/resources/images/forms/input_shadow.png");
+                background-image: url("/Oskari/${version}/resources/images/forms/input_shadow.png");
                 background-repeat: no-repeat;
                 padding-left: 5px;
                 padding-right: 5px;
@@ -92,14 +80,6 @@
                 padding: 5px;
             }
 
-			#lmilogo {
-				background-color: #004a8f;
-                position: absolute;
-                top: 0;
-                width: 170px;
-				height: 73px;
-			}
-
         }
     </style>
     <!-- ############# /css ################# -->
@@ -107,9 +87,6 @@
 <body>
 
 <nav id="maptools">
-	<div id="lmilogo">
-		<img src="Oskari/resources/images/LMI_logo_hlidar_serl_170x73.jpg" border="0">
-	<div>
     <div id="loginbar">
     </div>
     <div id="menubar">
@@ -127,18 +104,21 @@
         <c:choose>
             <%-- If logout url is present - so logout link --%>
             <c:when test="${!empty _logout_uri}">
-                <a href="${pageContext.request.contextPath}${_logout_uri}"><spring:message code="logout" text="Logout" /></a>
+                <form action="${pageContext.request.contextPath}${_logout_uri}" method="POST" id="logoutform">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <a href="${pageContext.request.contextPath}${_logout_uri}" onClick="jQuery('#logoutform').submit();return false;"><spring:message code="logout" text="Logout" /></a>
+                </form>
+                <%-- oskari-profile-link id is used by the personaldata bundle - do not modify --%>
+                <a href="${pageContext.request.contextPath}${_registration_uri}" id="oskari-profile-link"><spring:message code="account" text="Account" /></a>
             </c:when>
             <%-- Otherwise show appropriate logins --%>
             <c:otherwise>
-                <c:if test="${!empty _login_uri_saml}">
-                    <a href="${pageContext.request.contextPath}${_login_uri_saml}"><spring:message code="login.sso" text="SSO login" /></a><hr />
-                </c:if>
                 <c:if test="${!empty _login_uri && !empty _login_field_user}">
                     <form action='${pageContext.request.contextPath}${_login_uri}' method="post" accept-charset="UTF-8">
                         <input size="16" id="username" name="${_login_field_user}" type="text" placeholder="<spring:message code="username" text="Username" />" autofocus
                                required>
                         <input size="16" id="password" name="${_login_field_pass}" type="password" placeholder="<spring:message code="password" text="Password" />" required>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <input type="submit" id="submit" value="<spring:message code="login" text="Log in" />">
                     </form>
                 </c:if>
@@ -168,27 +148,14 @@
     var ajaxUrl = '${ajaxUrl}';
     var controlParams = ${controlParams};
 </script>
-
+<%-- Pre-compiled application JS, empty unless created by build job --%>
 <script type="text/javascript"
-        src="/Oskari/bundles/bundle.js">
+        src="/Oskari${path}/oskari.min.js">
 </script>
-
-<c:if test="${preloaded}">
-    <!-- Pre-compiled application JS, empty unless created by build job -->
-    <script type="text/javascript"
-            src="/Oskari${path}/oskari.min.js">
-    </script>
-    <!-- Minified CSS for preload -->
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="/Oskari${path}/oskari.min.css"
-            />
-    <%--language files --%>
-    <script type="text/javascript"
-            src="/Oskari${path}/oskari_lang_${language}.js">
-    </script>
-</c:if>
+<%--language files --%>
+<script type="text/javascript"
+        src="/Oskari${path}/oskari_lang_${language}.js">
+</script>
 
 <script type="text/javascript"
         src="/Oskari${path}/index.js">

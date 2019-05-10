@@ -1,0 +1,11 @@
+{
+    "create": [
+        "initial-dataproviders.sql",
+        "add-inspire-themes.sql",
+        "initial-users.sql"
+    ],
+    "views" : [
+        "myapp-geoportal.json",
+        "publisher-template.json"
+    ]
+}
